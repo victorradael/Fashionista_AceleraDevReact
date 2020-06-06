@@ -41,6 +41,7 @@ export default function SingleProduct({ product }) {
       <div className="product__group">
         <div className="product__info">
           <h3 className="info__name">{product.name}</h3>
+          <h6 className="info__name">Cor do produto: {product.color}</h6>
 
           <div className="info__price">
             {product.on_sale && (
@@ -80,7 +81,7 @@ export default function SingleProduct({ product }) {
 
         <Link to="/" className="link-back link-back--hover">
           <BsArrowLeft size={24} />
-          Voltar para a home
+          <p>Voltar </p>
         </Link>
       </div>
       <Toast />

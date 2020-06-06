@@ -7,11 +7,20 @@
   border-radius: 2px;
   background: #131313;
   max-width: 400px;
+  border-radius: 16px;
+  border: 2px solid transparent;
+  transition: 0.8s;
+}
+
+.product-search__container:hover {
+  border: 2px solid orangered;
 }
 
 .product-search__container img {
   max-width: 100px;
   margin: 0;
+
+  border-radius: 16px 0 0 16px;
 }
 
 .product-search__container .product__infos {

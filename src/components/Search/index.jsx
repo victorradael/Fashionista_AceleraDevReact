@@ -1,28 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { AiOutlineClose } from 'react-icons/ai';
-import { FiSearch } from 'react-icons/fi';
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { AiOutlineClose } from "react-icons/ai";
+import { FiSearch } from "react-icons/fi";
 
-import Drawer from '../../containers/Drawer';
-import Product from '../ProductSearch';
-import Debounce from '../../hooks/useDebounce';
+import Drawer from "../../containers/Drawer";
+import Product from "../ProductSearch";
+import Debounce from "../../hooks/useDebounce";
 
-import './styles.css';
+import "./styles.css";
 
 export default function Search() {
-  const items = useSelector(state => state.productsReducer.data)
+  const items = useSelector((state) => state.productsReducer.data);
   const [showSearch, toggleShowSearch] = useState(false);
   const [results, setResults] = useState([]);
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
 
   const debouncedSearchTerm = Debounce(value, 500);
 
   useEffect(() => {
-    if(debouncedSearchTerm) {
-      const products = items.filter(item => item.name.toLowerCase().includes(debouncedSearchTerm));
+    if (debouncedSearchTerm) {
+      const products = items.filter((item) =>
+        item.name.toLowerCase().includes(debouncedSearchTerm)
+      );
       setResults(products);
     }
-  }, [debouncedSearchTerm])
+  }, [debouncedSearchTerm, items]);
 
   function handleProducts(event) {
     event.preventDefault();
@@ -31,53 +33,51 @@ export default function Search() {
   }
 
   function handleSearch() {
-    if(showSearch) {
+    if (showSearch) {
       toggleShowSearch(false);
-      setValue('');
+      setValue("");
       setResults([]);
     } else {
-      toggleShowSearch(true)
+      toggleShowSearch(true);
     }
   }
 
   return (
     <>
-      <button 
-        className='search__btn-icon' 
-        onClick={handleSearch}
-      >
+      <button className="search__btn-icon" onClick={handleSearch}>
         <FiSearch size={24} />
       </button>
 
       {showSearch && (
         <Drawer>
-          <section className='search'>
-            <div className='search__header'>
+          <section className="search">
+            <div className="search__header">
               <h3>Buscar Produtos</h3>
-              <button className='search__btn-icon' onClick={handleSearch}>
-                <AiOutlineClose size={18} color='#fff' />
+              <button className="search__btn-icon" onClick={handleSearch}>
+                <AiOutlineClose size={18} color="#fff" />
               </button>
             </div>
 
-            <div className='search__header'>
-              <input 
-                className='search__input'
-                type='text' 
-                placeholder='Pesquisar'
+            <div className="search__header">
+              <input
+                className="search__input"
+                type="text"
+                placeholder="Pesquisar"
                 onChange={(event) => handleProducts(event)}
               />
-              <button className='search__btn-submit'>
+              <button className="search__btn-submit">
                 <FiSearch />
               </button>
             </div>
-            
-            <div className='search__products'>
+
+            <div className="search__products">
               <ul>
-                {results && results.map(item => (
-                  <li key={item.id} onClick={handleSearch}>
-                    <Product product={item} />
-                  </li>
-                ))}
+                {results &&
+                  results.map((item) => (
+                    <li key={item.id} onClick={handleSearch}>
+                      <Product product={item} />
+                    </li>
+                  ))}
               </ul>
             </div>
           </section>
@@ -85,6 +85,4 @@ export default function Search() {
       )}
     </>
   );
-};
-
-  
+}

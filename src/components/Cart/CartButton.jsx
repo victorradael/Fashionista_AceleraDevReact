@@ -1,12 +1,11 @@
-import React from 'react';
+import React from "react";
 
-function Button({ handleCheck }) { 
-
+function Button({ handleCheck }) {
   return (
-    <button className='cart__btn-complete' onClick={handleCheck}>
+    <button className="cart__btn-complete" onClick={handleCheck}>
       Fechar pedido
     </button>
   );
-};
+}
 
 export default Button;

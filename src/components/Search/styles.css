@@ -1,7 +1,7 @@
 .search__btn-icon {
   border: 0;
   background: transparent;
-  color: #FFF;
+  color: #fff;
 }
 
 .search {
@@ -13,6 +13,7 @@
   top: 0;
   left: 0;
   font-size: 14px;
+  font-family: "Bellota", cursive;
 }
 
 .search__header {
@@ -33,7 +34,7 @@
   padding-left: 15px;
   width: 80%;
   height: 45px;
-  color: #FFF;
+  color: #fff;
   border: 1px solid rgb(39, 39, 39);
   background: #131313;
 }
@@ -41,7 +42,7 @@
 .search__btn-submit {
   width: 50px;
   height: 45px;
-  color: #FFF;
+  color: #fff;
   background: #131313;
 }
 
@@ -55,6 +56,7 @@
 }
 
 .search__products ul {
+  width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
