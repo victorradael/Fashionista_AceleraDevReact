@@ -1,0 +1,23 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 15vh;
+  background-color: #000;
+  border-top: 2px solid transparent;
+  transition: 0.8s;
+}
+
+.footer:hover {
+  border-top: 2px solid orangered;
+}
+.footer a + a {
+  margin-left: 32px;
+}
+.footer__text {
+  font-weight: 500;
+  color: #c8c8c8;
+  margin: 10px 0;
+}
